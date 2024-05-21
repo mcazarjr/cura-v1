@@ -1,0 +1,83 @@
+{
+  "expo": {
+    "name": "cura-app",
+    "slug": "cura-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/images/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./src/assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.cura-app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.curaapp.cura",
+      "permissions": [
+        "android.permission.health.READ_STEPS",
+        "android.permission.health.READ_FLOORS_CLIMBED",
+        "android.permission.health.READ_DISTANCE",
+        "android.permission.health.READ_HEART_RATE",
+        "ACCESS_FINE_LOCATION", 
+        "ACCESS_COARSE_LOCATION", 
+        "ACCESS_BACKGROUND_LOCATION"
+      ],
+      "googleServicesFile": "./google-services.json"
+    },
+    "web": {
+      "favicon": "./src/assets/images/favicon.png"
+    },
+    "plugins": [
+      "@react-native-google-signin/google-signin",
+      "./androidManifestPlugin.js",
+      "react-native-health",
+      "react-native-health-connect",
+      [
+        "expo-notifications",
+        {
+          "icon": "./src/assets/images/notifications_cura_elder.png",
+          "color": "#6fd1d8",
+          "sounds": ["./cura_loud.wav"]
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 34,
+            "targetSdkVersion": 34,
+            "minSdkVersion": 26
+          }
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location.",
+          "isAndroidBackgroundLocationEnabled": "Allow App to use your location in the background"
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c10a03af-9191-45bf-beb1-73fdd2c1bd28"
+      }
+    },
+    "scheme": "cura-app"
+  }
+}
